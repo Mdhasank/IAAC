@@ -39,11 +39,9 @@ Creates a Virtual Private Cloud (VPC) with two subnets and an Internet Gateway.
 
 **Deploy via CLI:**
 ```bash
-aws cloudformation create-stack \
-  --stack-name my-vpc-stack \
-  --template-body file://CloudFormation/vpc.yaml \
-  --parameters ParameterKey=VpcCIDR,ParameterValue=10.0.0.0/16
+aws cloudformation create-stack --stack-name my-vpc-stack --template-body file://vpc.yaml --parameters ParameterKey=VpcCIDR,ParameterValue=10.0.0.0/16
 ```
+*Note: cd `\` to navigate to the CloudFormation directory, then run the command.*
 
 ### 2. Infrastructure Template (`infra.yaml`)
 A more comprehensive template that provisions networking, compute, and storage resources.
@@ -57,12 +55,10 @@ A more comprehensive template that provisions networking, compute, and storage r
 
 **Deploy via CLI:**
 ```bash
-aws cloudformation create-stack \
-  --stack-name my-infra-stack \
-  --template-body file://CloudFormation/infra.yaml \
-  --parameters ParameterKey=KeyName,ParameterValue=YOUR_KEY_PAIR_NAME
+aws cloudformation create-stack --stack-name my-infra-stack --template-body file://infra.yaml --parameters ParameterKey=KeyName,ParameterValue=YOUR_KEY_PAIR_NAME
+
 ```
-*Note: Replace `YOUR_KEY_PAIR_NAME` with an existing EC2 Key Pair name in your AWS account.*
+*Note: Replace `YOUR_KEY_PAIR_NAME` with an existing EC2 Key Pair name in your AWS account. cd `\` to navigate to the CloudFormation directory, then run the command.*
 
 ---
 
